@@ -1,127 +1,372 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+  "name": "OPNet Docs",
+  "description": "Bitcoin-native smart contracts on OPNet: node, OP-VM, AssemblyScript contracts, SDKs, APIs.",
+  "logo": {
+    "light": "logo/light.svg",
+    "dark": "logo/dark.svg",
+    "href": "https://opnet.org"
   },
-  "favicon": "/favicon.svg",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
+  "colors": {
+    "primary": "#FF6A00"
+  },
+  "api": {
+    "playground": {
+      "display": "interactive"
+    },
+    "examples": {
+      "languages": [
+        "curl",
+        "javascript",
+        "python"
       ]
     }
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+  "navigation": {
+    "groups": [
+      {
+        "group": "Welcome",
+        "pages": [
+          "welcome/overview",
+          "welcome/quickstart",
+          "welcome/architecture",
+          "welcome/glossary",
+          "welcome/changelog"
+        ]
+      },
+      {
+        "group": "Learn",
+        "pages": [
+          "learn/what-is-opnet",
+          "learn/unified-accounts",
+          {
+            "group": "Transactions, Gas & Priority",
+            "pages": [
+              "learn/transactions-gas-priority/overview",
+              "learn/transactions-gas-priority/priority-fees",
+              "learn/transactions-gas-priority/fee-market",
+              "learn/transactions-gas-priority/receipts"
+            ]
+          },
+          "learn/op20",
+          "learn/nfts",
+          "learn/networks",
+          "learn/security-model"
+        ]
+      },
+      {
+        "group": "OPNet Protocol (Spec)",
+        "pages": [
+          "protocol/overview",
+          {
+            "group": "Epochs & Checkpoints",
+            "pages": [
+              "protocol/epochs/definition",
+              "protocol/epochs/checksum-root",
+              "protocol/epochs/finality-by-age"
+            ]
+          },
+          {
+            "group": "Mining & Tie-break",
+            "pages": [
+              "protocol/mining/sha1-near-collision",
+              "protocol/mining/tie-break-determinism",
+              "protocol/mining/reward-delay"
+            ]
+          },
+          {
+            "group": "Attestations & Proofs",
+            "pages": [
+              "protocol/attestations/attestation-tree",
+              "protocol/attestations/light-clients",
+              "protocol/attestations/merkle-proofs"
+            ]
+          },
+          "protocol/embedded-submissions",
+          "protocol/security-economics",
+          "protocol/cross-chain"
+        ]
+      },
+      {
+        "group": "OP-VM (Virtual Machine)",
+        "pages": [
+          "opvm/overview",
+          "opvm/execution",
+          "opvm/host-interface",
+          "opvm/state",
+          "opvm/gas",
+          "opvm/determinism",
+          "opvm/evm-parity",
+          "opvm/bindings",
+          "opvm/versioning"
+        ]
+      },
+      {
+        "group": "AssemblyScript Contracts",
+        "pages": [
+          "contracts-as/introduction",
+          "contracts-as/runtime",
+          "contracts-as/memory",
+          "contracts-as/storage",
+          "contracts-as/abi",
+          "contracts-as/events",
+          "contracts-as/calls",
+          "contracts-as/crypto",
+          "contracts-as/testing",
+          "contracts-as/patterns",
+          "contracts-as/gas",
+          "contracts-as/checklist"
+        ]
+      },
+      {
+        "group": "TypeScript SDK",
+        "pages": [
+          "sdk/overview",
+          {
+            "group": "Providers",
+            "pages": [
+              "sdk/providers/http",
+              "sdk/providers/websocket",
+              "sdk/providers/fallback",
+              "sdk/providers/retries-timeouts",
+              "sdk/providers/network-switching"
+            ]
+          },
+          {
+            "group": "Signers & Wallets",
+            "pages": [
+              "sdk/signers/wallet",
+              "sdk/signers/hdwallet",
+              "sdk/signers/hardware",
+              "sdk/signers/remote",
+              "sdk/signers/unified-keys"
+            ]
+          },
+          {
+            "group": "Contract Abstractions",
+            "pages": [
+              "sdk/contracts/contract",
+              "sdk/contracts/contract-factory",
+              "sdk/contracts/codegen",
+              "sdk/contracts/filters-events"
+            ]
+          },
+          {
+            "group": "ABI & Bytes",
+            "pages": [
+              "sdk/abi/abi-coder",
+              "sdk/abi/selectors",
+              "sdk/abi/encoding-decoding"
+            ]
+          },
+          {
+            "group": "Transactions",
+            "pages": [
+              "sdk/transactions/build",
+              "sdk/transactions/sign",
+              "sdk/transactions/send",
+              "sdk/transactions/wait"
+            ]
+          },
+          "sdk/utils",
+          {
+            "group": "Cookbook",
+            "pages": [
+              "sdk/cookbook/web",
+              "sdk/cookbook/react-native",
+              "sdk/cookbook/nextjs",
+              "sdk/cookbook/wallets"
+            ]
+          },
+          {
+            "group": "Testing",
+            "pages": [
+              "sdk/testing/mocks",
+              "sdk/testing/fixtures",
+              "sdk/testing/providers"
+            ]
+          },
+          "sdk/migration"
+        ]
+      },
+      {
+        "group": "Node Operators",
+        "pages": [
+          "node/introduction",
+          "node/regtest-5min",
+          {
+            "group": "Install & Run",
+            "pages": [
+              "node/install/binaries",
+              "node/install/docker",
+              "node/install/source",
+              "node/install/systemd"
+            ]
+          },
+          {
+            "group": "Configuration",
+            "pages": [
+              "node/configuration/flags",
+              "node/configuration/env-vars",
+              "node/configuration/example-configs",
+              "node/configuration/json-schema"
+            ]
+          },
+          {
+            "group": "Sync & Data",
+            "pages": [
+              "node/sync-pruning/modes",
+              "node/sync-pruning/pruning",
+              "node/sync-pruning/recovery",
+              "node/data-layout/paths"
+            ]
+          },
+          "node/p2p",
+          "node/observability",
+          "node/backups",
+          "node/security",
+          "node/troubleshooting"
+        ]
+      },
+      {
+        "group": "API Reference",
+        "openapi": "openapi.json"
+      },
+      {
+        "group": "API Explorer (Try it)",
+        "pages": [
+          "rpc/playground",
+          "rpc/auth-and-servers",
+          "rpc/errors",
+          "rpc/blocks/get-by-number",
+          "rpc/blocks/get-by-hash",
+          "rpc/blocks/subscribe-new-heads",
+          "rpc/tx/send-raw",
+          "rpc/tx/get-by-hash",
+          "rpc/tx/estimate-gas",
+          "rpc/state/get-balance",
+          "rpc/state/get-storage",
+          "rpc/contracts/call"
+        ]
+      },
+      {
+        "group": "Bitcoin Fundamentals",
+        "pages": [
+          "btc/utxo-vs-account",
+          "btc/consensus-vs-standardness",
+          {
+            "group": "Fees & Mempool",
+            "pages": [
+              "btc/fees/weight",
+              "btc/fees/feerates-rbf",
+              "btc/fees/cpfp"
+            ]
+          },
+          "btc/psbt",
+          "btc/descriptors"
+        ]
+      },
+      {
+        "group": "Bitcoin Address Encyclopedia",
+        "pages": [
+          "btc/addresses/overview",
+          "btc/addresses/legacy",
+          "btc/addresses/p2sh-nested",
+          "btc/addresses/segwit-v0",
+          "btc/addresses/taproot",
+          "btc/addresses/special",
+          "btc/addresses/opnet"
+        ]
+      },
+      {
+        "group": "Bitcoin Script Patterns",
+        "pages": [
+          "btc/script/patterns"
+        ]
+      },
+      {
+        "group": "Tutorials",
+        "pages": [
+          "tutorials/op20-quickstart",
+          "tutorials/nft-royalties",
+          "tutorials/dex-swap",
+          "tutorials/indexer",
+          "tutorials/p2wda",
+          "tutorials/local-devnet"
+        ]
+      },
+      {
+        "group": "Security",
+        "pages": [
+          "security/threat-model",
+          "security/keys",
+          "security/reentrancy",
+          "security/abi-validation",
+          "security/gas-griefing",
+          "security/auditing"
+        ]
+      },
+      {
+        "group": "Migrations",
+        "pages": [
+          "migrate/from-ethereum",
+          "migrate/ethers-to-opnet",
+          "migrate/solidity-to-assemblyscript"
+        ]
+      },
+      {
+        "group": "Ecosystem",
+        "pages": [
+          "ecosystem/wallets-explorers",
+          "ecosystem/repos"
+        ]
+      },
+      {
+        "group": "Contribute",
+        "pages": [
+          "contribute/docs",
+          "contribute/code",
+          "contribute/security"
+        ]
+      },
+      {
+        "group": "Appendix",
+        "pages": [
+          "appendix/types-serialization",
+          "appendix/hashes-encodings",
+          "appendix/receipts",
+          "appendix/merkle-proofs",
+          {
+            "group": "Opcode & Syscall Indices",
+            "pages": [
+              "appendix/opcodes-syscalls/opcodes",
+              "appendix/opcodes-syscalls/syscalls"
+            ]
+          },
+          "appendix/constants",
+          "appendix/error-codes",
+          "appendix/json-rpc-method-index",
+          "appendix/faq"
+        ]
+      }
+    ]
   },
+  "theme": "maple",
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "GitHub",
+        "href": "https://github.com/btc-vision"
+      },
+      {
+        "label": "Swagger API",
+        "href": "https://swagger.opnet.org/api-docs/"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "label": "Get Started",
+      "href": "https://docs.opnet.org/welcome/quickstart"
     }
   }
 }

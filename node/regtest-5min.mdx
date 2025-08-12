@@ -1,0 +1,54 @@
+---
+title: "Regtest in 5 minutes"
+description: "Spin up a local OPNet node on regtest and make your first JSON-RPC call."
+---
+
+# Regtest in 5 minutes
+
+## 1) Start a local node
+
+Pick **one** method.
+
+### Docker
+```bash
+docker run --rm -it \
+  -p 8545:8545 \
+  -e NETWORK=regtest \
+  ghcr.io/opnet/node:latest
+```
+
+### Binary
+```bash
+./opnet-node --network regtest --http.addr 0.0.0.0 --http.port 8545
+```
+
+> Keep the RPC URL handy, e.g. `http://127.0.0.1:8545`.
+
+## 2) Ping the node
+
+```bash
+curl -s -X POST http://127.0.0.1:8545 \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"web3_clientVersion","params":[]}'
+```
+
+You should see a JSON result describing the client.
+
+## 3) Send a test transaction
+
+Check the API reference for the exact method names/params. Example shape:
+
+```bash
+curl -s -X POST http://127.0.0.1:8545 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "eth_sendRawTransaction",
+    "params": ["0x..."]
+  }'
+```
+
+## 4) Stop & restart
+
+`Ctrl+C` to stop. Rerun the same command to restart.

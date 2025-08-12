@@ -1,0 +1,33 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "OPNet Node API (placeholder)",
+    "version": "0.0.1",
+    "description": "Replace this file with the real OPNet OpenAPI JSON or set the docs.json group `openapi` to the raw URL that returns JSON/YAML."
+  },
+  "servers": [
+    {
+      "url": "https://regtest.opnet.org",
+      "description": "Regtest (example)"
+    },
+    {
+      "url": "https://fractal.opnet.org",
+      "description": "Fractal (example)"
+    }
+  ],
+  "paths": {},
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ]
+}

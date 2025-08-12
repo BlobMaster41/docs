@@ -1,0 +1,76 @@
+---
+title: "Quickstart"
+description: "Spin up a node, call the JSON-RPC, and compile a minimal contract."
+---
+
+# Quickstart
+
+This guide gives you a working environment in minutes. It has three tracks: **Node**, **API**, and **Contracts**.
+
+## 1) Node (local or remote)
+
+- Choose an RPC endpoint (local node or a hosted endpoint).
+- If running locally, follow [/node/install/binaries](/node/install/binaries) or Docker [/node/install/docker](/node/install/docker).
+
+> Keep the RPC base URL handy (e.g., `http://127.0.0.1:8545`).
+
+## 2) API (try it live)
+
+Open the **API Reference** in the sidebar and use the playground.
+If you prefer curl/JS, here’s a generic JSON‑RPC call shape (replace `METHOD` and `params` with real values from the API reference):
+
+```bash
+curl -X POST $RPC_URL   -H "Content-Type: application/json"   -d '{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"METHOD",
+    "params": []
+  }'
+```
+
+If you see HTML in response, double‑check that you’re calling the **raw JSON‑RPC** endpoint, not a Swagger UI page.
+
+## 3) Contracts (AssemblyScript)
+
+Install deps and scaffold a minimal contract:
+
+```bash
+# Project setup (example)
+mkdir my-contract && cd my-contract
+npm init -y
+npm install --save @btc-vision/btc-runtime
+```
+
+Create `contracts/MyContract.ts`:
+
+```ts
+import { OP_NET, Blockchain, Calldata, BytesWriter, encodeSelector, Address } from "@btc-vision/btc-runtime/runtime";
+
+export class MyContract extends OP_NET {
+  public override onDeployment(_: Calldata): void {}
+
+  public override execute(method: u32, calldata: Calldata): BytesWriter {
+    if (method === encodeSelector("ping()")) {
+      const out = new BytesWriter(4);
+      out.writeString("pong");
+      return out;
+    }
+    return super.execute(method, calldata);
+  }
+}
+```
+
+Build & deploy using your chosen toolchain, then call `ping()` via the SDK or raw RPC.
+
+## Troubleshooting
+
+- RPC returns HTML → you’re hitting a UI endpoint; use the raw JSON endpoint.
+- Contract selector mismatch → confirm `encodeSelector()` signature string matches your entrypoint.
+- Storage reads 0 → verify pointer/sub‑pointer encoding and that the state root updated.
+
+## Next steps
+
+- **Contracts**: [/contracts-as/introduction](/contracts-as/introduction)
+- **OP‑VM**: [/opvm/overview](/opvm/overview)
+- **SDK**: [/sdk/overview](/sdk/overview)
+- **Standards**: [/standards/op20](/standards/op20)
